@@ -26,17 +26,38 @@
             <div class="dropdown"><button class="btn btn-dark btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Filter </button>
                 <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">This Week</a><a class="dropdown-item" role="presentation" href="#">This Month</a></div>
             </div>
-            <div class="float-right">
-                <button id="add_budget_item" type="button" class="btn btn-primary">Add Item</button>
+            <div class="container">
+              <form class="form-inline" action="">
+                <div class="form-group">
+                  <label for="desc">Description: </label>
+                  <input type="text" class="form-control" placeholder="Description" id="description_form">
+                </div>
+                <div class="dropdown">
+                   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                     Label
+                   </button>
+                   <div class="dropdown-menu">
+                     <a class="dropdown-item" script="">mylabel 1</a>
+                     <a class="dropdown-item" script="">mylabel 2</a>
+                     <a class="dropdown-item" script="">mylabel 3</a>
+                   </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="val">Value: </label>
+                    <input class="form-control" placeholder="$" id="val_form">
+                  </div>
+                  <div class="form-group">
+                    <label for="date">Date: </label>
+                    <input type="date" class="form-control" id="date_form">
+                  </div>
+                  <button id="add_budget_item" type="button" class="btn btn-primary float-right">Add Item</button>
+              </form>
             </div>
           </div>
         </div>
     <div class="row" style="margin-left: 12.5%;height: 237px;margin-right: 12.5%;width: 75%;">
         <div class="col" style="padding-top: 25px;width: 100%;">
-            <ul class="list-group">
-                <li class="list-group-item"><span class="float-left">Purchase Placeholder</span><span class="float-right" style="color: #ff0000;">- $20.00</span></li>
-                <li class="list-group-item"><span class="float-left">Income Placeholder</span><span class="float-right" style="color: #24ff00;">+ $20.00</span></li>
-            </ul>
+            <ul id="summary_budget" class="list-group"></ul>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
