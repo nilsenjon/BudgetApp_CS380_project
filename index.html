@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>My Budget</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css">
+    <!link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -15,15 +16,15 @@
         <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Log Out</a></li>
     </ul>
-        <div class="container">
+        <div class="container" style="max-width: 950px;">
             <h1>Chart</h1>
             <canvas id="chart1"></canvas>
         </div>
-    <div class="row" style="margin-left: 12.5%;height: 237px;margin-right: 12.5%;width: 75%;">
-        <div class="col" style="width: 100%;">
+    <div class="row" style="margin-left: 12.5%;margin-right: 12.5%;width: 75%;">
+        <div class="col-lg-" style="width: 100%;">
             <h1>Summary</h1>
             <div class="dropdown"><button class="btn btn-dark btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Filter </button>
-                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">This Week</a><a class="dropdown-item" role="presentation" href="#">This Month</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">This Week</a><a class="dropdown-item" role="presentation" href="#">This Month</a></div>
             </div>
             <div class="float-right">
                 <button id="add_budget_item" type="button" class="btn btn-primary">Add Item</button>
