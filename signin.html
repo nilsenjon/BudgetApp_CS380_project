@@ -23,15 +23,33 @@
     </nav>
     <div class="mx-auto" style="background-color: rgb(30,33,35); width:300px; padding-top:200px;">
         <form  class="mx-auto" method="post" style="background-color: rgb(30,33,35);">
-            <h1 class="text-center mx-auto" style="color: rgb(255,255,255); width: 300px; padding-bottom:25px;">Sign In</h1>
+            <h1 class="text-center mx-auto" style="color: rgb(255,255,255); width: 300px; padding-bottom:25px;">Welcome Back</h1>
             <div class="form-group"><input class="form-control" type="text" name="email" placeholder="Email"></div>
             <div class="form-group"><input class="form-control" type="text" name="password" placeholder="Password"></div>
-            <div class="form-group mx-auto" style="width:100px; padding-top:25px;"><a class="button_2 text-center" type="submit" style="color: rgb(255,255,255);background-color: rgb(53,96,136); border-width:1px; width:100px;" href="index.html">Log In</a></div>
+            <div class="form-group mx-auto" style="width:100px; padding-top:25px;"><a class="button_2 text-center" onclick="logIn" type="submit" style="color: rgb(255,255,255);background-color: rgb(53,96,136); border-width:1px; width:100px;" href="home.html">Log In</a></div>
         </form>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
 </body>
+
+
+
+<script>
+    function logIn() {
+        var xhr = new XMLHttpRequest();
+    var url = "url?data=" + encodeURIComponent(JSON.stringify({"email": "hey@mail.com", "password": "101010"}));
+    xhr.open("GET", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        var json = JSON.parse(xhr.responseText);
+        console.log(json.email + ", " + json.password);
+    }
+};
+xhr.send();
+    }
+    </script>
 
 </html>
