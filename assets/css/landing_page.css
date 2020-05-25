@@ -1,0 +1,54 @@
+.button_look {
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: rgb(255,255,255);
+    border-left-style:solid;
+    border-left-width: 1px;
+    border-left-color: rgb(255,255,255);
+    padding-left:25px;
+    padding-right:25px;
+}
+
+.button-2 {
+    width:200px;
+    color:white !important;
+    color: rgb(255,255,255);
+    background-color: rgb(53,96,136);
+    border-width:1px;
+    width:200px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+body {
+    background-color: rgb(30,33,35);
+}
+
+.sign_in {
+    background-color: rgb(56,75,84);
+}
+
+.color-btn {
+    color:white;
+}
+
+a {
+    color: rgb(255,255,255);
+}
+
+a:hover {
+    text-underline-position:auto;
+    color: rgb(255,255,255) !important;
+    text-decoration:underline;
+}
+
+.login {
+}
+
+.login:hover {
+    height:35px;
+}
+
+.sign-up {
+    color: white !important;
+}
