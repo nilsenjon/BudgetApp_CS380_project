@@ -1,0 +1,6 @@
+[31m[nodemon] running an unsupported version of node v14.0.0-pre[39m
+[31m[nodemon] nodemon may not work as expected - please consider upgrading to LTS[39m
+(node:13431) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+[31m[nodemon] running an unsupported version of node v14.0.0-pre[39m
+[31m[nodemon] nodemon may not work as expected - please consider upgrading to LTS[39m
+(node:13454) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
