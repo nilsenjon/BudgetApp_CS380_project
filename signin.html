@@ -12,44 +12,41 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="assets/css/landing_page.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css">
 </head>
 
-<body>
-    <nav class="navbar navbar-light navbar-expand-md" style="background-color:rgb(30,33,35)">
-        <div class="container-fluid"><a class="navbar-brand" href="#" style="color:white">[name]</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse"
-                id="navcol-1"></div>
+    <body>
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link" href="#">[name]</a></li>
+            <li class="nav-item"><a class="nav-link" href="landingpage.html">Go Back</a></li>
+        </ul>
+        <div class="mx-auto" style="width:300px; padding-top:200px;">
+            <form  class="mx-auto" method="post">
+                <h1 class="text-center mx-auto" style="color: rgb(255,255,255); width: 300px; padding-bottom:25px;">Sign In</h1>
+                <div class="form-group"><input class="form-control" type="text" name="email" placeholder="Email"></div>
+                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+                <div class="form-group mx-auto" style="width:100px; padding-top:25px;"><a class="button-2 rounded text-center" type="submit" style="color: rgb(255,255,255);background-color: rgb(53,96,136); border-width:1px; width:100px;" onclick="logIn" href="index.html">Log In</a></div>
+            </form>
+            <h1 class="mx-auto" style="width:250px;"><a class="mx-auto sign-up"href="signup.html" style="font-size:15px;">Don't have an account? Sign up now!</a></h1>
         </div>
-    </nav>
-    <div class="mx-auto" style="background-color: rgb(30,33,35); width:300px; padding-top:200px;">
-        <form  class="mx-auto" method="post" style="background-color: rgb(30,33,35);">
-            <h1 class="text-center mx-auto" style="color: rgb(255,255,255); width: 300px; padding-bottom:25px;">Welcome Back</h1>
-            <div class="form-group"><input class="form-control" type="text" name="email" placeholder="Email"></div>
-            <div class="form-group"><input class="form-control" type="text" name="password" placeholder="Password"></div>
-            <div class="form-group mx-auto" style="width:100px; padding-top:25px;"><a class="button_2 text-center" onclick="logIn" type="submit" style="color: rgb(255,255,255);background-color: rgb(53,96,136); border-width:1px; width:100px;" href="home.html">Log In</a></div>
-        </form>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-</body>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/bs-init.js"></script>
+    </body>
 
-
-
-<script>
+    <script>
     function logIn() {
         var xhr = new XMLHttpRequest();
-    var url = "url?data=" + encodeURIComponent(JSON.stringify({"email": "hey@mail.com", "password": "101010"}));
-    xhr.open("GET", url, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-        var json = JSON.parse(xhr.responseText);
-        console.log(json.email + ", " + json.password);
-    }
-};
-xhr.send();
+        var url = "url?data=" + encodeURIComponent(JSON.stringify({"email": "hey@mail.com", "password": "101010"}));
+        xhr.open("GET", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                console.log(json.email + ", " + json.password);
+            }
+        };
+        xhr.send();
     }
     </script>
-
 </html>
