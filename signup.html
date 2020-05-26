@@ -23,12 +23,13 @@
     <div class="mx-auto" style="width:300px; padding-top:200px;">
         <form  class="mx-auto" method="post" style="border-color:white; border-width:5px;">
             <h1 class="text-center mx-auto" style="color: rgb(255,255,255); width: 300px; padding-bottom:25px;">Sign Up</h1>
-            <div class="form-group"><input class="form-control" type="text" name="firstname" placeholder="First Name"></div>
-            <div class="form-group"><input class="form-control" type="text" name="lastname" placeholder="Last Name"></div>
-            <div class="form-group"><input class="form-control" type="text" name="email" placeholder="Email"></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Choose a password"></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Type password again"></div>
-            <div class="form-group mx-auto" style="width:200px; padding-top:25px;"><a class="button-2 text-center rounded" type="submit" href="home.html">Start Budgeting</a></div>
+            <div class="form-group"><input class="form-control" type="text" id="firstName" name="firstname" placeholder="First Name"></div>
+            <div class="form-group"><input class="form-control" type="text" id="lastName" name="lastname" placeholder="Last Name"></div>
+            <div class="form-group"><input class="form-control" type="text" id="email" name="email" placeholder="Email"></div>
+            <div class="form-group"><input class="form-control" type="password" id="password1" name="password" placeholder="Choose a password"></div>
+            <div class="form-group"><input class="form-control" type="password" id="password2" name="password" placeholder="Type password again"></div>
+            <div class="form-group mx-auto" style="width:200px; padding-top:25px;"><a class="button-2 text-center rounded" type="submit" onClick="signup()" 
+                <!href="home.html">Start Budgeting</a></div>
         </form>
         <h1 class="mx-auto" style="width:250px;"><a class="mx-auto sign-up"href="signin.html" style="font-size:15px;">Already have an account? Sign in here!</a></h1>
     </div>
@@ -36,5 +37,34 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
 </body>
+
+
+<script type="text/javascript" src="HttpRequest.js"></script>
+<script>
+    function signup() {
+        var password1 = document.getElementById('password1').value
+        var password2 = document.getElementById('password1').value
+
+        if(password1 === password2){
+            var jsonInput = {}
+            jsonInput.firstName = document.getElementById('firstName').value
+            jsonInput.lastName = document.getElementById('lastName').value
+
+        jsonInput.email = document.getElementById('email').value
+        jsonInput.password = password1
+        jsonInput.username = "test"
+        ret = request("PUT", "user", jsonInput).then(ret=>{
+        if(ret.statusCode == 400){
+            window.alert(ret.details[0].message)
+        }else{
+            //TODO navigate back to home page. show success message?
+        }
+        })
+        }else{
+            window.alert("Passwords do not match.")
+        }
+
+    }
+</script>
 
 </html>

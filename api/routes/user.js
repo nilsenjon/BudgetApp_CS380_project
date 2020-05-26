@@ -176,7 +176,7 @@ router.delete('/', function (req, res) {
     }
 });
 
-router.get('/search', function (req, res) {
+router.post('/search', function (req, res) {
     console.log("----------GET USER/SEARCH----------")
     console.log("Body:", req.body)
     const { error, value } = searchUser.validate(req.body);
@@ -205,7 +205,7 @@ router.get('/search', function (req, res) {
     }
 });
 
-router.get('/', function (req, res) {
+router.post('/get', function (req, res) {
     console.log("----------GET USER----------")
     console.log("Body:", req.body)
     const { error, value } = getUser.validate(req.body);
