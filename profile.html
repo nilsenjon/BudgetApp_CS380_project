@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Profile</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+        <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+        <link rel="stylesheet" href="assets/css/profile.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#">Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="tips.html">Tips</a></li>
+            <li class="nav-item"><a class="nav-link" href="landingpage.html">Log Out</a></li>
+        </ul>
+        <div>
+            <h1 class="mx-auto" id="title-prof">Your Profile</h1>
+            <div class="row justify-content-center info">
+                <div class="col-2">
+                    <h4 class="type1">Name:</h4>
+                    <h4 class="type2">Email:</h4>
+                    <h4 class="type1">Member since:</h4>
+                    <h4 class="type2">Subscribed to email:</h4>
+                </div>
+                <div class="col-2">
+                    <h4 id="name-disp">[First name] [Last name]</h4>
+                    <h4 id="email-disp">[Email Address]</h4>
+                    <h4 id="date-disp">[Date of Creation]</h4>
+                    <h4 id="sub-disp">[YES] or [NO]</h4>
+                </div>
+            </div>
+            <div id="pro-edit"><a class="mx-auto rounded" id="myBtn" type="button">Edit Profile</a></div>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Edit Your Profile</p>
+                    <input id="name" type="text" placeholder="Enter name">
+                    <input id="email" type="text" placeholder="Enter email">
+                    <div><a class="my-btn rounded" id="save" onclick="saveChanges()" type="button">Save Changes</a></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+        
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        function saveChanges() {
+            var namein = document.getElementById("name").value;
+            var emailin = document.getElementById("email").value;
+            document.getElementById("name-disp").innerHTML = namein;
+            document.getElementById("email-disp").innerHTML = emailin;
+            modal.style.display = "none";
+        }
+        
+    </script>
+</html>
