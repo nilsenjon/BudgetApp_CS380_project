@@ -33,7 +33,7 @@
                     <h4 class="type1">Member since:</h4>
                     <h4 class="type2">Subscribed to email:</h4>
                 </div>
-                <div class="col-2">
+                <div class="col-2 disp">
                     <h4 id="name-disp">[First name] [Last name]</h4>
                     <h4 id="email-disp">[Email Address]</h4>
                     <h4 id="date-disp">[Date of Creation]</h4>
@@ -41,27 +41,27 @@
                 </div>
             </div>
             <div id="pro-edit"><a class="mx-auto rounded" id="myBtn" type="button">Edit Profile</a></div>
-            <div id="myModal" class="modal">
+            <div id="myModal" class="modal mx-auto">
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <p>Edit Your Profile</p>
-                    <input id="name" type="text" placeholder="Enter name">
-                    <input id="email" type="text" placeholder="Enter email">
-                    <div><a class="my-btn rounded" id="save" onclick="saveChanges()" type="button">Save Changes</a></div>
+                    <p style="text-align: center; font-size:20px;">Edit Your Profile</p>
+                    <div class="input-disp">New name:&emsp;<input id="name" type="text" placeholder="Enter name"></div>
+                    <div class="input-disp">New email:&emsp;<input id="email" type="text" placeholder="Enter email"></div>
+                    <div class="cen-btn mx-auto"><a class="my-btn rounded" id="save" onclick="saveChanges()" type="button">Save Changes</a></div>
                 </div>
             </div>
         </div>
     </body>
     <script>
         var modal = document.getElementById("myModal");
-        var btn = document.getElementById("myBtn");
-        var span = document.getElementsByClassName("close")[0];
+        var trigger = document.getElementById("myBtn");
+        var closeBtn = document.getElementsByClassName("close")[0];
         
-        btn.onclick = function() {
+        trigger.onclick = function() {
             modal.style.display = "block";
         }
         
-        span.onclick = function() {
+        closeBtn.onclick = function() {
             modal.style.display = "none";
         }
         
@@ -78,6 +78,5 @@
             document.getElementById("email-disp").innerHTML = emailin;
             modal.style.display = "none";
         }
-        
     </script>
 </html>
