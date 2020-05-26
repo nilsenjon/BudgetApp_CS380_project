@@ -22,6 +22,10 @@
     padding-right: 20px;
 }
 
+.cen-btn {
+    
+}
+
 #myBtn:hover {
     text-decoration: underline;
 }
@@ -37,27 +41,40 @@
     text-decoration: underline;
 }
 
+#myModal {
+    
+}
+
 .modal {
-    display:none;
-    position:fixed;
-    z-index:1;
-    padding-top:100px;
-    left:0;
-    right:0;
-    width:600px;
-    max-width: 100%;
-    height:100%;
-    overflow:auto;
-    background-color:rgb(0,0,0);
-    background-color:rgba(0,0,0,0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+    transform: scale(1.1);
+}
+
+.input-disp {
+    width:450px;
+    padding-bottom: 10px;
 }
 
 .modal-content {
-    background-color:rgba(53,96,136,1);
-    margin:auto;
-    padding: 20px;
-    border: 1px solid white;
-    width:80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 320px !important;
+    border-radius: 0.5rem;
+}
+
+.show-modal {
+    visibility: visible;
+    transform: scale(1.0);
 }
 
 .close {
@@ -71,4 +88,8 @@
     color:white;
     text-decoration: none;
     cursor: pointer;
+}
+
+.disp {
+    text-align:right;
 }
