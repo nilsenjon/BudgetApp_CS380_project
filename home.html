@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>My Budget</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css">
-    <!link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/budgetpage.css">
 </head>
 
 <body>
@@ -18,6 +17,7 @@
         <li class="nav-item"><a class="nav-link" href="emailSubscription.html">Subscribe to Weekly Email</a></li>
         <li class="nav-item"><a class="nav-link" href="landingpage.html">Log Out</a></li>
     </ul>
+    <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#sharable" style="margin: 15px;">Share</button>
         <div class="container" style="max-width: 950px;">
             <h1>Chart</h1>
             <canvas id="chart1"></canvas>
@@ -26,31 +26,34 @@
         <div class="col-lg-" style="width: 100%;">
             <h1>Summary</h1>
             <div class="dropdown"><button class="btn btn-dark btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Filter </button>
-                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">This Week</a><a class="dropdown-item" role="presentation" href="#">This Month</a></div>
+                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" id="week_select">This Week</a></div>
             </div>
             <div class="container">
-              <form class="form-inline" action="">
-                <div class="form-group">
-                  <label for="desc">Description: </label>
-                  <input type="text" class="form-control" placeholder="Description" id="description_form">
+              <form class="form-inline needs-validation" action="" id="budget_form">
+                <div class="form-group" style="padding: 15px;">
+                  <label for="description_form"></label>
+                  <input type="text" class="form-control" placeholder="Description" id="description_form" required>
                 </div>
                 <div class="dropdown">
                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                      Label
                    </button>
                    <div class="dropdown-menu">
-                     <a class="dropdown-item" script="">mylabel 1</a>
-                     <a class="dropdown-item" script="">mylabel 2</a>
-                     <a class="dropdown-item" script="">mylabel 3</a>
+                     <a class="dropdown-item" script="">savings</a>
+                     <a class="dropdown-item" script="">food</a>
+                     <a class="dropdown-item" script="">entertainment</a>
+                     <a class="dropdown-item" script="">entertainment</a>
+                     <a class="dropdown-item" script="">bills</a>
+                     <a class="dropdown-item" script="">other</a>
                    </div>
                   </div>
-                  <div class="form-group">
-                    <label for="val">Value: </label>
-                    <input class="form-control" placeholder="$" id="val_form">
+                  <div class="form-group" style="padding: 15px;">
+                    <label for="val_form"></label>
+                    <input type="number" class="form-control" placeholder="Value" id="val_form" required>
                   </div>
-                  <div class="form-group">
-                    <label for="date">Date: </label>
-                    <input type="date" class="form-control" id="date_form">
+                  <div class="form-group" style="padding: 15px;">
+                    <label for="date"></label>
+                    <input type="date" class="form-control" id="date_form" required>
                   </div>
                   <button id="add_budget_item" type="button" class="btn btn-primary float-right">Add Item</button>
               </form>
@@ -62,11 +65,55 @@
             <ul id="summary_budget" class="list-group"></ul>
         </div>
     </div>
+
+    <div id="sharable" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Share My Budget</h5>
+          </div>
+          <div class="modal-body">
+            <form class="form was-validated" id="share_form" action="">
+              <div class="form-group">
+                <label for="email_form"></label>
+                <input type="email" class="form-control" placeholder="Email Address" id="email_form" required>
+              </div>
+              <div class="form-group">
+                <label for="email_form_text"></label>
+                <textarea class="form-control" rows="5" id="email_form_text" placeholder="Email Text"></textarea>
+              </div>
+              <button id="send_invite_email" type="button" data-toggle="modal" data-target="#alert_popup" data-dismiss="modal" class="btn btn-primary float-right">Share</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="alert_popup" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Sent</h4>
+          </div>
+          <div class="modal-body">
+            <p></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 
-    <script src="assets/js/main_budget_page_proto_v1.js"></script>
+    <script src="assets/js/budgetpage.js"></script>
 </body>
 
 </html>
