@@ -96,3 +96,9 @@ div.tips-title {
 .tips-accor {
     padding-top:20px;
 }
+
+.head {
+    font-size: 18px;
+    padding-bottom: 3px;
+    font-weight: 500;
+}

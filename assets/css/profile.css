@@ -1,18 +1,21 @@
 #title-prof {
-    padding-top:10px;
-    padding-bottom:10px;
+    padding-top:20px;
+    padding-bottom:50px;
     padding-left:15px;
     text-align:center;
+    font-size: 65px;
 }
 
 .info {
     padding-top:25px;
     padding-bottom:25px;
+    background-color: rgb(53,96,136);
 }
 
 #pro-edit {
     text-align:center;
     padding:10px;
+    padding-top:15px;
 }
 
 #myBtn {
@@ -91,5 +94,9 @@
 }
 
 .disp {
-    text-align:right;
+    text-align:left;
+}
+
+.titles {
+    text-align: right;
 }
