@@ -1,16 +1,11 @@
 //--------------------------chart script----------------------------------------
 
 //backend sim data
-var label_array = ["savings", "food", "entertainment", "bills", "other"];
+var label_array = [0, 1, 2, 3, 4];
+var label_names = ["savings", "food", "bills", "entertainment", "other"]
 var data_array = [500, 80, 120, 45, 45];
 var date_array = ["2020-05-24", "2020-05-20", "2020-05-18", "2020-05-17", "2020-05-17"]
-
-data_array.forEach((item, i) => {
-  createBudgetElement(item, "placeholder", date_array[date_array.length -1 -i]);
-});
 //end of backend sim
-
-
 
 var chartPie = document.getElementById("chart1").getContext('2d');
 var myChart = new Chart(chartPie,
@@ -18,7 +13,7 @@ var myChart = new Chart(chartPie,
 {
 type: 'pie',
 data: {
-    labels: label_array, //labels for legend, etc
+    labels: label_names, //labels for legend, etc
     datasets: [{
         data: data_array, //the actual data
         backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360", "#4D5360"],
@@ -30,13 +25,22 @@ responsive: true
 }
 });
 
-
 //--------------------------add item to Summary---------------------------------
+
+function generateBudgetItems(){
+  data_array.forEach((item, i) => {
+    createBudgetElement(item, "placeholder", date_array[date_array.length -1 -i]);
+  });
+}
+
+generateBudgetItems();
 
 //red color: #ff0000
 //green color: #24ff00
 
 var btnAdd = document.getElementById("add_budget_item");
+
+var selected_label = ""
 
 btnAdd.addEventListener("click", function() {
 
@@ -57,9 +61,8 @@ btnAdd.addEventListener("click", function() {
         if (vLength !== dLength) {
           console.log("error: vLength and dLength are not equal")
         }
-
         createBudgetElement(val_input, desc_input, date_input);
-
+        //$(chartPie).bootstrapTable('refresh');
       }
 })
 
@@ -81,6 +84,13 @@ function createBudgetElement(value, desc, date) {
   span_date.style = "margin-left: 50px;"
   li.appendChild(span_date);
 
+  var span_label = document.createElement("span");
+  span_label.textContent = selected_label
+  //span_date.id = date
+  span_label.className = "float-left"
+  span_label.style = "margin-left: 50px;"
+  li.appendChild(span_label);
+
   var span_val = document.createElement("span");
   span_val.textContent = "$" + value
   span_val.className = "float-right"
@@ -92,7 +102,7 @@ function createBudgetElement(value, desc, date) {
 
 //filter by current week working. currently working on filter by month
 
-var filter_week = document.getElementById("week_select");
+var filter_week = document.getElementById("filter_week");
 //var filter_month = document.getElementById("month_select");
 
 filter_week.addEventListener("click", changeToWeek);
@@ -145,6 +155,65 @@ function changeToWeek() {
 //     createBudgetElement(item, "placeholder", date_array[date_array.length -1 -i]);
 //   });
 // }
+
+//---------------------------label selector-------------------------------------
+var btnLabel = document.getElementById("label_selector_button");
+var btnAddLabel = document.getElementById("add_label_btn");
+var labelDropDown = document.getElementById("label_selector");
+var labelInput = document.getElementById("label_input");
+var hasClicked = 0;
+
+btnLabel.addEventListener("click", function(){
+  if (hasClicked == 0) {
+    label_names.forEach((item, i) => {
+      var label = document.createElement("a");
+      label.className = "dropdown-item";
+      label.onclick = selectedLabel(this.textContent);
+      label.textContent = item
+      hasClicked = 1;
+      labelDropDown.insertBefore(label, labelDropDown.firstChild);
+    })
+  }
+})
+
+btnAddLabel.addEventListener("click", function() {
+  label_array.unshift(labelInput.value);
+
+  var label = document.createElement("a");
+  label.className = "dropdown-item";
+  label.textContent = labelInput.value
+  labelDropDown.insertBefore(label, labelDropDown.firstChild);
+
+})
+
+function selectedLabel(labelName) {
+  selected_label = labelName;
+}
+
+//---------------------upload csv file-----------------------------------------
+
+$('#input_file_csv').on('change',function(){
+    //get the file name
+    var fileName = $(this).val();
+    var cleanFileName = fileName.replace('C:\\fakepath\\', " ");
+    //replace the "Choose a file" label
+    $(this).next('.custom-file-label').html(cleanFileName);
+})
+
+var file = document.getElementById('input_file_csv').files[0];
+const fileReader = new FileReader();
+
+fileReader.addEventListener('load', (event) => {
+  parseFile(event.target.result);
+});
+
+fileReader.readAsText(file);
+
+function parseFile() {
+
+  //in progress
+}
+
 
 //---------------------share budget modal---------------------------------------
 var btnShare = document.getElementById("send_invite_email");
